@@ -1,8 +1,8 @@
-module "aci_scaffolding" {
-  source  = "netascode/scaffolding/aci"
+module "aci_port_channel_member_policy" {
+  source  = "netascode/port-channel-member-policy/aci"
   version = ">= 0.0.1"
 
-  name        = "ABC"
-  alias       = "ABC-ALIAS"
-  description = "My Description"
+  name     = "FAST"
+  priority = 10
+  rate     = "fast"
 }

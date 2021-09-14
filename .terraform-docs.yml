@@ -3,14 +3,14 @@ version: '>= 0.14.0'
 formatter: markdown table
 
 content: |-
-  [![Tests](https://github.com/netascode/terraform-aci-scaffolding/actions/workflows/test.yml/badge.svg)](https://github.com/netascode/terraform-aci-scaffolding/actions/workflows/test.yml)
+  [![Tests](https://github.com/netascode/terraform-aci-port-channel-member-policy/actions/workflows/test.yml/badge.svg)](https://github.com/netascode/terraform-aci-port-channel-member-policy/actions/workflows/test.yml)
 
-  # Terraform ACI Scaffolding Module
+  # Terraform ACI Port Channel Member Policy Module
 
-  Description
+  Manages ACI Port Channel Member Policy
 
   Location in GUI:
-  `Tenants` » `XXX`
+  `Fabric` » `Access Policies` » `Policies` » `Interface` » `Port Channel Member`
 
   ## Examples
 

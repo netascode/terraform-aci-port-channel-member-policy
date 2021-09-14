@@ -1,9 +1,9 @@
 output "dn" {
-  value       = aci_rest.fvTenant.id
-  description = "Distinguished name of `fvTenant` object."
+  value       = aci_rest.lacpIfPol.id
+  description = "Distinguished name of `lacpIfPol` object."
 }
 
 output "name" {
-  value       = aci_rest.fvTenant.content.name
-  description = "Tenant name."
+  value       = aci_rest.lacpIfPol.content.name
+  description = "Port channel member policy name."
 }

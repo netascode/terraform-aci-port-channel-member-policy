@@ -1,5 +1,5 @@
 variable "name" {
-  description = "Tenant name."
+  description = "Port channel member policy name."
   type        = string
 
   validation {
@@ -8,24 +8,24 @@ variable "name" {
   }
 }
 
-variable "alias" {
-  description = "Tenant alias."
-  type        = string
-  default     = ""
+variable "priority" {
+  description = "Priority. Minimum value: 1. Maximum value: 65535."
+  type        = number
+  default     = 32768
 
   validation {
-    condition     = can(regex("^[a-zA-Z0-9_.-]{0,64}$", var.alias))
-    error_message = "Allowed characters: `a`-`z`, `A`-`Z`, `0`-`9`, `_`, `.`, `-`. Maximum characters: 64."
+    condition     = var.priority >= 1 && var.priority <= 65535
+    error_message = "Minimum value: 1. Maximum value: 65535."
   }
 }
 
-variable "description" {
-  description = "Tenant description."
+variable "rate" {
+  description = "Rate. Choices: `normal`, `fast`."
   type        = string
-  default     = ""
+  default     = "normal"
 
   validation {
-    condition     = can(regex("^[a-zA-Z0-9\\!#$%()*,-./:;@ _{|}~?&+]{0,128}$", var.description))
-    error_message = "Allowed characters: `a`-`z`, `A`-`Z`, `0`-`9`, `\\`, `!`, `#`, `$`, `%`, `(`, `)`, `*`, `,`, `-`, `.`, `/`, `:`, `;`, `@`, ` `, `_`, `{`, `|`, }`, `~`, `?`, `&`, `+`. Maximum characters: 128."
+    condition     = contains(["normal", "fast"], var.rate)
+    error_message = "Allowed values are `normal` or `fast`."
   }
 }
