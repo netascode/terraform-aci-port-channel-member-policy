@@ -5,8 +5,8 @@ terraform {
     }
 
     aci = {
-      source  = "netascode/aci"
-      version = ">=0.2.0"
+      source  = "CiscoDevNet/aci"
+      version = ">=2.0.0"
     }
   }
 }
@@ -17,7 +17,7 @@ module "main" {
   name = "FAST"
 }
 
-data "aci_rest" "lacpIfPol" {
+data "aci_rest_managed" "lacpIfPol" {
   dn = "uni/infra/lacpifp-${module.main.name}"
 
   depends_on = [module.main]
@@ -28,7 +28,7 @@ resource "test_assertions" "lacpIfPol" {
 
   equal "name" {
     description = "name"
-    got         = data.aci_rest.lacpIfPol.content.name
+    got         = data.aci_rest_managed.lacpIfPol.content.name
     want        = module.main.name
   }
 }
